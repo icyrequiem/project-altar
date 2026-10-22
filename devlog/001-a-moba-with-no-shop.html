@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Devlog #1: A MOBA with no shop · Project Altar</title>
+	<meta name="description" content="The idea behind Project Altar, its two hard rules, and the first playable prototype.">
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<header>
+		<a class="brand" href="../">Project Altar</a>
+		<nav><a href="../">Devlog</a><a href="../timeline.html">Timeline</a></nav>
+	</header>
+	<main>
+		<h1>Devlog #1: A MOBA with no shop</h1>
+		<div class="meta">22 October 2026 · Sqreem</div>
+
+		<p>Hi! I'm Sqreem, a solo indie dev, and this is the first devlog for Project Altar (a code name for now), a 5v5 MOBA I'm building in Godot.</p>
+
+		<h2>The idea</h2>
+		<p>Project Altar keeps what I love about MOBAs (three lanes, a jungle, last-hitting, teamfights) and removes the part I don't: the shop. There is no gold and no item building. You grow in two ways.</p>
+		<p><strong>Levels and attributes.</strong> Every level gives you points to spend on Strength (health and armor), Agility (attack speed and move speed) or Intelligence (mana and magic damage). Points in your hero's primary attribute also add basic-attack damage.</p>
+		<p><strong>Relics.</strong> Relics appear at an altar in the middle of the map at regular intervals. To claim one, you have to hold the ground next to it for a few seconds. An enemy in the circle freezes your progress; getting stunned, leaving or dying resets it. Relics grow stronger with the level of the hero holding them, you can carry a few at once, and you keep them when you die. Inventory full? Drop one, or hand it to a teammate.</p>
+
+		<figure>
+			<img src="../img/laning.png" alt="Gray-box prototype: a hero and minions fighting in a lane">
+			<figcaption>Laning in the gray-box prototype.</figcaption>
+		</figure>
+
+		<h2>Two hard rules</h2>
+		<p>No blinks or dashes, and no invisibility. Positioning should matter, and you should always be able to see what's coming. Minions are solid, too, so you can't just walk through a wave.</p>
+
+		<h2>What's built so far</h2>
+		<p>Today the first playable prototype came together: a gray-box map, a full offline match simulation, the first hero (Orin Ash), a bot to play against, the relic altar, relic giving between teammates, and LoL/Dota-style controls with ground-targeted skill indicators.</p>
+
+		<figure>
+			<img src="../img/relic-fight.png" alt="A red hero contesting the relic altar while blue minions push">
+			<figcaption>A fight over the relic altar.</figcaption>
+		</figure>
+		<figure>
+			<img src="../img/cast-indicators.png" alt="Four skill aiming indicators: a line, a cone, a circle at range and a ring around the hero">
+			<figcaption>Ground-targeted skill indicators: press the skill key, aim, click to cast.</figcaption>
+		</figure>
+
+		<h2>Next</h2>
+		<p>Dedicated servers so real players can fight each other, then more heroes.</p>
+		<p>If a shopless MOBA sounds interesting, follow along here. I'll post every milestone.</p>
+
+		<div class="card">
+			<h3>Proof of date</h3>
+			<p class="meta">The game's source is private. This hash commits to the exact source at this milestone without revealing it. Details are in <a href="../proofs/milestone-001.txt">milestone-001.txt</a>.</p>
+			<code>git commit 2b394384009dec474b6c22b06238a863120d7c01</code>
+		</div>
+	</main>
+	<footer>&copy; 2026 Sqreem.</footer>
+</body>
+</html>
