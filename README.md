@@ -1,6 +1,6 @@
 # Project Altar website
 
-Public site and dated devlog for Project Altar (code name), a 5v5 MOBA in development by Sqreem.
+Public site and dated devlog for Project Altar (code name), a 5v5 MOBA in development by Ynairally.
 Plain static HTML served by GitHub Pages from the `main` branch root.
 
 - `index.html` home and devlog list
