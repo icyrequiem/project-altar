@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Devlog #2: Six heroes and fog of war · Project Altar</title>
+	<meta name="description" content="Hero select, five new heroes, and fog of war without wards.">
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<header>
+		<a class="brand" href="../">Project Altar</a>
+		<nav><a href="../">Devlog</a><a href="../timeline.html">Timeline</a></nav>
+	</header>
+	<main>
+		<h1>Devlog #2: Six heroes and fog of war</h1>
+		<div class="meta">23 October 2026 · Sqreem</div>
+
+		<p>A day after the first prototype, the game has gone from one hero to six. There's a hero select screen and real fog of war. Here's what changed.</p>
+
+		<h2>Hero select</h2>
+		<p>Before a match you now pick your hero. Click a hero to see their stats and kit, then lock in (or roll a random pick). The bot then picks too, preferring a hero you didn't take. The bot also learned to play any hero's kit from that hero's ability data, so every new hero is playable against it from day one.</p>
+
+		<h2>The roster</h2>
+		<p>Every hero has a primary attribute (Strength, Agility or Intelligence), a passive, and four abilities. True to the hard rules, nobody blinks, dashes or turns invisible.</p>
+		<table>
+			<thead><tr><th>Hero</th><th>Role</th><th>What they do</th></tr></thead>
+			<tbody>
+				<tr><td>Orin Ash</td><td>Mage (INT)</td><td>Fire magic that burns: a fireball, a wall of flame, a close-range scorch and a meteor.</td></tr>
+				<tr><td>Bastion Grael</td><td>Tank (STR)</td><td>Shields himself after taking heavy damage. Stuns, shields allies, taunts enemies, and can turn the team into a fortress that takes less damage.</td></tr>
+				<tr><td>Lyra Thorn</td><td>Marksman (AGI)</td><td>Her attacks crit on a rhythm. Piercing arrows, a volley, snare traps, and a very long-range marked shot.</td></tr>
+				<tr><td>Maro Tidecaller</td><td>Support (INT)</td><td>Healing gives him mana back. A tide orb that heals allies or hits enemies, a cleansing bubble shield, a pull, and a tsunami that knocks enemies back.</td></tr>
+				<tr><td>Kira Vex</td><td>Assassin (AGI)</td><td>Hits harder from behind. Binds and slows, blinds attackers inside her smoke, and finishes low-health targets with an execute.</td></tr>
+				<tr><td>Rhea Ironfang</td><td>Fighter (STR)</td><td>Heals for every enemy her abilities hit. Bleeds, roars and slams, then shifts into a beast form with a whole new set of abilities.</td></tr>
+			</tbody>
+		</table>
+		<p>Note what's missing: no hero has a blink, dash or leap. Mobility comes from positioning, pulls and knockbacks on enemies, and slowing the other team down, never from jumping past a wall.</p>
+
+		<h2>Fog of war, without wards</h2>
+		<p>You can now only see what your team can see. Heroes, minions, towers, cores and fountains give vision, and jungle walls block it. Enemies outside your vision vanish from the map, the minimap and their health bars, and they can't be targeted.</p>
+		<p>Most MOBAs let you buy wards to light up the map. With no shop and no stealth in this game, there are no wards. Vision comes from where your team actually is. Pushing a lane or holding the centre altar now also means seeing more of the map.</p>
+
+		<h2>Next</h2>
+		<p>Dedicated servers, so the fog of war and everything else is decided by the server and real players can fight each other. Art is coming later. The game is still gray boxes for now.</p>
+
+		<div class="card">
+			<h3>Proof of date</h3>
+			<p class="meta">This hash commits to the private source at this milestone without revealing it. Details are in <a href="../proofs/milestone-002.txt">milestone-002.txt</a>.</p>
+			<code>git commit 9fce0a88b153f43a87d012c4e37bb43cae7622ba</code>
+		</div>
+	</main>
+	<footer>&copy; 2026 Sqreem.</footer>
+</body>
+</html>
