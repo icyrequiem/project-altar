@@ -61,7 +61,7 @@ const DEVLOGS = [
 // Heroes start with no attribute points; players spend them on level-up.
 // Leave an attribute as null to show the slot without a number.
 // quote: a short line in the hero's own voice; null hides it.
-// portrait: an in-game render from the hero's model; null shows the placeholder.
+// portrait: concept art (or an in-game render) with a transparent background; null shows the placeholder.
 const SPOTLIGHT = [
 	{
 		name: "Orin Ash",
@@ -70,7 +70,7 @@ const SPOTLIGHT = [
 		attributes: { STR: null, AGI: null, INT: null },
 		kit: ["Fireball", "Flame Wall", "Scorch", "Meteor"],
 		quote: null,
-		portrait: "img/orin_ash.webp",
+		portrait: "img/orin_ash_concept.webp",
 		accent: "from-orange-500/25",
 	},
 	{
@@ -80,7 +80,7 @@ const SPOTLIGHT = [
 		attributes: { STR: null, AGI: null, INT: null },
 		kit: ["Shadow Bind", "Smoke Veil", "Crescent Slash", "Execute"],
 		quote: null,
-		portrait: "img/kira_vex.webp",
+		portrait: "img/kira_vex_concept.webp",
 		accent: "from-fuchsia-500/25",
 	},
 ];
@@ -172,7 +172,7 @@ function HeroCard({ hero }) {
 		<Glass className="grid overflow-hidden md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
 			<div className={`relative aspect-[4/5] max-w-full bg-gradient-to-b ${hero.accent ?? "from-slate-800"} via-slate-900 to-black md:aspect-auto md:min-h-[26rem]`}>
 				{hero.portrait ? (
-					<img src={hero.portrait} alt={`${hero.name}, rendered from the game`} className="absolute inset-0 h-full w-full object-contain p-4" loading="lazy" />
+					<img src={hero.portrait} alt={`${hero.name} concept art`} className="absolute inset-0 h-full w-full object-contain p-4" loading="lazy" />
 				) : (
 					<div className="absolute inset-0 grid place-items-center">
 						<div className="grid h-40 w-40 place-items-center border border-cyan-200/30 rotate-45">
