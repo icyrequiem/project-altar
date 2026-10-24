@@ -3,43 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Project Altar</title>
-	<meta name="description" content="Project Altar is a 5v5 MOBA with no gold and no shop, in development by solo indie dev Ynairally.">
-	<link rel="stylesheet" href="style.css">
+	<title>Relic Protocol</title>
+	<meta name="description" content="Relic Protocol is a 5v5 MOBA with no dashes and no shop, in development by solo indie dev Ynairally.">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Oswald:wght@500;700&display=swap">
+	<link rel="stylesheet" href="assets/landing.css">
 </head>
-<body>
-	<header>
-		<a class="brand" href="./">Project Altar</a>
-		<nav><a href="./">Devlog</a><a href="timeline.html">Timeline</a></nav>
-	</header>
-	<main>
-		<h1>A 5v5 MOBA with no shop</h1>
-		<p class="lead">Project Altar (a code name for now) is a team battle game in development by solo indie dev Ynairally. There's no gold and no item building. Heroes grow through levels, attributes and relics won at a contested altar.</p>
-
-		<figure>
-			<img src="img/relic-fight.png" alt="Gray-box prototype: a red hero contests the relic altar while blue minions push the lane">
-			<figcaption>Gray-box prototype, October 2026.</figcaption>
-		</figure>
-
-		<h2>Devlog</h2>
-		<div class="card">
-			<h3><a href="devlog/003-online-play-and-relic-arenas.html">#3: Online play and relic arenas</a></h3>
-			<div class="meta">24 October 2026</div>
-			<p>Dedicated servers, walled relic arenas in the jungle, ten heroes, a real map, and the first hero model.</p>
-		</div>
-		<div class="card">
-			<h3><a href="devlog/002-six-heroes-and-fog-of-war.html">#2: Six heroes and fog of war</a></h3>
-			<div class="meta">23 October 2026</div>
-			<p>Hero select, five new heroes, and fog of war without wards.</p>
-		</div>
-		<div class="card">
-			<h3><a href="devlog/001-a-moba-with-no-shop.html">#1: A MOBA with no shop</a></h3>
-			<div class="meta">22 October 2026</div>
-			<p>The idea behind the game, its two hard rules, and the first playable prototype.</p>
-		</div>
-	</main>
-	<footer>
-		&copy; 2026 Ynairally. Every devlog is dated and backed by a published hash of the game's source at that milestone. See the <a href="timeline.html">timeline</a>.
-	</footer>
+<body class="bg-[#070a0d]">
+	<div id="root"></div>
+	<noscript>
+		<p style="color:#e2e8f0;font-family:system-ui;padding:16px">Relic Protocol is a 5v5 MOBA with no dashes and no shop. Read the <a style="color:#67e8f9" href="devlog/003-online-play-and-relic-arenas.html">latest devlog</a> or the <a style="color:#67e8f9" href="timeline.html">timeline</a>.</p>
+	</noscript>
+	<script src="assets/landing.js"></script>
 </body>
 </html>
