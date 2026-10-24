@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Devlog #3: Online play and relic arenas · Project Altar</title>
+	<meta name="description" content="Online play on a dedicated server, relic arenas in the jungle, ten heroes, a real map, and the first hero model.">
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<header>
+		<a class="brand" href="../">Project Altar</a>
+		<nav><a href="../">Devlog</a><a href="../timeline.html">Timeline</a></nav>
+	</header>
+	<main>
+		<h1>Devlog #3: Online play and relic arenas</h1>
+		<div class="meta">24 October 2026 · Ynairally</div>
+
+		<p>This was a big two days. The game is now playable online, the relic fight moved into the jungle and got a lot more interesting, the roster grew to ten, and the first real hero model is in.</p>
+
+		<h2>Online play</h2>
+		<p>Matches can now run on a dedicated server with a lobby. The server runs the whole match and decides everything: damage, hits, XP, relics and what each team can see. Players only send their orders and receive what their team is allowed to know, so fog of war can't be cheated by reading the game's memory.</p>
+
+		<h2>Relic arenas replace the centre altar</h2>
+		<p>The single altar in the middle of the map is gone. Now a relic arena opens in one of two river pits in the jungle, announced shortly before it opens so both teams can plan.</p>
+		<ul>
+			<li><strong>A walled fight.</strong> The arena is ringed by a barrier. Only the heroes your team sends can cross it, and neither abilities nor basic attacks pass through. No sniping from outside: if you want the relic, you go in.</li>
+			<li><strong>Catch-up built in.</strong> The team already holding more relics gets fewer places in the arena. When a team wins, the relic goes to its lowest-level hero, and every relic you hold slows your XP gain. Relics help the team that's behind more than the one that's ahead.</li>
+			<li><strong>Hold the ground.</strong> Whichever team has more heroes in the inner circle runs the capture. Equal numbers reset it, so every body counts.</li>
+		</ul>
+		<p>Relics you drop now land on the ground for anyone with a free slot to pick up. There's also a recall to channel back to your base. It's the one exception to the no-teleport rule: it's slow, it's interrupted by damage, and you can't use it inside an arena.</p>
+
+		<h2>Ten heroes</h2>
+		<table>
+			<thead><tr><th>New hero</th><th>Role</th><th>What they do</th></tr></thead>
+			<tbody>
+				<tr><td>Nyra Frostweave</td><td>Mage (INT)</td><td>Her hits stack chill until the target freezes solid. Ice shards, a delayed root ring, a slowing cone, and a delayed blast that freezes everyone in it.</td></tr>
+				<tr><td>Juno Galecaller</td><td>Mage (AGI)</td><td>Her basic attacks charge up and discharge lightning. Piercing bolts, a tailwind for her team, a knockback gust, and a storm field.</td></tr>
+				<tr><td>Haldor Quakeborn</td><td>Tank (STR)</td><td>His attacks shake the ground around his target. A delayed fault line, an unstoppable stride (no dash, he just walks through it), a pull, and a mountain falling on everyone around him.</td></tr>
+				<tr><td>Sela Dawnsong</td><td>Support (INT)</td><td>Healing makes her faster. A sun lance that hurts enemies and heals allies, a healing anthem, a blinding flash, and a sanctuary that protects her team.</td></tr>
+			</tbody>
+		</table>
+		<p>They join Orin Ash, Bastion Grael, Lyra Thorn, Maro Tidecaller, Kira Vex and Rhea Ironfang. Still no blinks, dashes or stealth anywhere.</p>
+
+		<h2>A real map</h2>
+		<p>The gray-box test map is now a classic three-lane layout with jungle camps and the two river pits where relic arenas open. Jungle camps leave you alone until you hit them, give XP, and don't chase you far. There's also a scoreboard with kills and assists, and names over health bars.</p>
+
+		<h2>First hero art</h2>
+		<p>The art direction is anime-stylized, with cel shading and clean outlines. Orin Ash is the first hero with a real model, a staff and animations, replacing the gray capsule. More heroes will follow.</p>
+
+		<h2>Next</h2>
+		<p>Art for the rest of the roster, and playtesting the arenas online.</p>
+
+		<div class="card">
+			<h3>Proof of date</h3>
+			<p class="meta">This hash commits to the private source at this milestone without revealing it. Details are in <a href="../proofs/milestone-003.txt">milestone-003.txt</a>.</p>
+			<code>git commit ada9e49368f972ed2d694e92f167596f232eb834</code>
+		</div>
+	</main>
+	<footer>&copy; 2026 Ynairally.</footer>
+</body>
+</html>

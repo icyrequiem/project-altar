@@ -1,0 +1,11 @@
+Project Altar - milestone 003 (devlog #3)
+Date: 2026-10-24
+
+Private game repository main branch at this milestone:
+  git commit: ada9e49368f972ed2d694e92f167596f232eb834
+  committed:  2026-10-24T04:43:35Z
+  SHA-256 of "git archive --format=tar ada9e49368f972ed2d694e92f167596f232eb834": 2def54f3db8a098ac98c4829395eebc54bb76543471096c7e996f1ebf0013519
+
+These hashes reveal nothing about the code, but prove that this exact
+source tree existed no later than this file's first commit to the public
+project-altar repository.
