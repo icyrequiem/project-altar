@@ -29,6 +29,13 @@ const PILLARS = [
 
 const DEVLOGS = [
 	{
+		n: "004",
+		date: "2026-10-24",
+		title: "First heroes in full art",
+		summary: "Orin Ash and Kira Vex get real models, animations and ability effects.",
+		href: DEVLOG_BASE + "004-first-heroes-in-full-art.html",
+	},
+	{
 		n: "003",
 		date: "2026-10-24",
 		title: "Online play and relic arenas",
@@ -51,17 +58,32 @@ const DEVLOGS = [
 	},
 ];
 
-const SPOTLIGHT = {
-	name: "Orin Ash",
-	role: "Mage",
-	primary: "INT",
-	// Heroes start with no attribute points; players spend them on level-up.
-	// Leave a value as null to show the slot without a number.
-	attributes: { STR: null, AGI: null, INT: null },
-	kit: ["Fireball", "Flame Wall", "Scorch", "Meteor"],
-	quote: null, // A short line in the hero's own voice; null hides the quote.
-	portrait: null, // image URL; null shows the placeholder
-};
+// Heroes start with no attribute points; players spend them on level-up.
+// Leave an attribute as null to show the slot without a number.
+// quote: a short line in the hero's own voice; null hides it.
+// portrait: an in-game render from the hero's model; null shows the placeholder.
+const SPOTLIGHT = [
+	{
+		name: "Orin Ash",
+		role: "Mage",
+		primary: "INT",
+		attributes: { STR: null, AGI: null, INT: null },
+		kit: ["Fireball", "Flame Wall", "Scorch", "Meteor"],
+		quote: null,
+		portrait: "img/orin_ash.webp",
+		accent: "from-orange-500/25",
+	},
+	{
+		name: "Kira Vex",
+		role: "Assassin",
+		primary: "AGI",
+		attributes: { STR: null, AGI: null, INT: null },
+		kit: ["Shadow Bind", "Smoke Veil", "Crescent Slash", "Execute"],
+		quote: null,
+		portrait: "img/kira_vex.webp",
+		accent: "from-fuchsia-500/25",
+	},
+];
 
 function GlassButton({ href, children, tone = "glass" }) {
 	const tones = {
@@ -148,9 +170,9 @@ function HeroCard({ hero }) {
 	const initials = hero.name.split(" ").map((w) => w[0]).join("");
 	return (
 		<Glass className="grid overflow-hidden md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
-			<div className="relative aspect-[4/5] max-w-full bg-gradient-to-br from-slate-800 via-slate-900 to-black md:aspect-auto">
+			<div className={`relative aspect-[4/5] max-w-full bg-gradient-to-b ${hero.accent ?? "from-slate-800"} via-slate-900 to-black md:aspect-auto md:min-h-[26rem]`}>
 				{hero.portrait ? (
-					<img src={hero.portrait} alt={`${hero.name} portrait`} className="h-full w-full object-cover" />
+					<img src={hero.portrait} alt={`${hero.name}, rendered from the game`} className="absolute inset-0 h-full w-full object-contain p-4" loading="lazy" />
 				) : (
 					<div className="absolute inset-0 grid place-items-center">
 						<div className="grid h-40 w-40 place-items-center border border-cyan-200/30 rotate-45">
@@ -188,8 +210,10 @@ function Spotlight() {
 				<h2 id="heroes-title" className="font-display text-sm uppercase tracking-[0.3em] text-slate-400">Hero spotlight</h2>
 				<span className="font-mono text-xs text-slate-500">10 heroes in the roster</span>
 			</div>
-			<div className="mt-8">
-				<HeroCard hero={SPOTLIGHT} />
+			<div className="mt-8 grid gap-8">
+				{SPOTLIGHT.map((h) => (
+					<HeroCard key={h.name} hero={h} />
+				))}
 			</div>
 		</section>
 	);
