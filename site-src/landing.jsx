@@ -5,6 +5,10 @@ import { createRoot } from "react-dom/client";
 
 const DISCORD_URL = null; // Set to the invite link once the server exists; until then the button shows "coming soon".
 const DEVLOG_BASE = "devlog/";
+// Alpha test. SIGNUP_FORM_URL is the embeddable sign-up form (for a Tally form: https://tally.so/embed/<id>?transparentBackground=1&hideTitle=1).
+// Until it is set, the section says sign-ups open soon. The download is not linked here: registered testers get a private link by email.
+const SIGNUP_FORM_URL = null;
+const SIGNUP_PAGE_URL = null; // Same form as a normal page (https://tally.so/r/<id>), for people whose browser blocks the embed.
 
 const PILLARS = [
 	{
@@ -128,6 +132,7 @@ function Hero() {
 				Enter Relic Protocol: a 5v5 tactical arena where minion geometry and spatial control dictate survival.
 			</p>
 			<div className="mt-10 flex flex-wrap gap-4">
+				<GlassButton href="#alpha">Join the alpha</GlassButton>
 				<GlassButton href="#heroes">View Heroes</GlassButton>
 				{DISCORD_URL ? (
 					<GlassButton href={DISCORD_URL} tone="crimson">Join the Discord</GlassButton>
@@ -136,6 +141,73 @@ function Hero() {
 						Discord · coming soon
 					</span>
 				)}
+			</div>
+		</section>
+	);
+}
+
+const ALPHA_STEPS = [
+	{ n: "01", title: "Register", body: "Leave your email and a few details about your PC." },
+	{ n: "02", title: "Get your key", body: "Each wave of testers gets a private download link by email." },
+	{ n: "03", title: "Play and report", body: "Fight bots or other testers on our server, then tell us what broke." },
+];
+
+function AlphaTest() {
+	return (
+		<section id="alpha" aria-labelledby="alpha-title" className="py-16 scroll-mt-8">
+			<div className="flex items-end justify-between gap-6 border-b border-white/10 pb-4">
+				<h2 id="alpha-title" className="font-display text-sm uppercase tracking-[0.3em] text-slate-400">Closed alpha</h2>
+				<span className="font-mono text-xs uppercase tracking-widest text-cyan-300/80">Windows · Linux</span>
+			</div>
+			<div className="mt-8 grid gap-6 lg:grid-cols-[1fr_1.2fr]">
+				<div>
+					<p className="font-display text-3xl font-bold uppercase leading-tight text-white sm:text-4xl [text-wrap:balance]">
+						Help us break it before anyone else does.
+					</p>
+					<p className="mt-4 text-slate-300">
+						The alpha is small and rough: placeholder stickman art, bots in empty seats and frequent updates. Testers play
+						online 5v5 matches on our server and shape the game before it opens up.
+					</p>
+					<ol className="mt-8 grid gap-3">
+						{ALPHA_STEPS.map((step) => (
+							<li key={step.n}>
+								<Glass className="flex gap-4 p-4">
+									<span className="font-mono text-sm text-cyan-300">{step.n}</span>
+									<span>
+										<span className="block font-display text-sm uppercase tracking-[0.2em] text-white">{step.title}</span>
+										<span className="mt-1 block text-sm text-slate-400">{step.body}</span>
+									</span>
+								</Glass>
+							</li>
+						))}
+					</ol>
+					<p className="mt-6 font-mono text-xs leading-relaxed text-slate-500">
+						Needs 64-bit Windows 10 or 11 (or Linux) and a graphics card from the last ten years. The alpha build is not
+						code-signed yet, so Windows may ask you to confirm before it runs.
+					</p>
+				</div>
+				<Glass className="min-h-[28rem] p-2">
+					{SIGNUP_FORM_URL ? (
+						<>
+							<iframe
+								src={SIGNUP_FORM_URL}
+								title="Alpha test sign-up form"
+								loading="lazy"
+								className="h-[34rem] w-full border-0 bg-transparent"
+							/>
+							{SIGNUP_PAGE_URL && (
+								<p className="px-4 pb-3 font-mono text-xs text-slate-500">
+									Form not showing? <a href={SIGNUP_PAGE_URL} className="text-cyan-300 hover:text-cyan-200">Open it in a new page</a>.
+								</p>
+							)}
+						</>
+					) : (
+						<div className="flex h-full min-h-[27rem] flex-col items-center justify-center gap-3 p-8 text-center">
+							<span className="font-display text-2xl uppercase tracking-[0.2em] text-white">Sign-ups open soon</span>
+							<span className="max-w-sm text-sm text-slate-400">Follow the devlog for the date.</span>
+						</div>
+					)}
+				</Glass>
 			</div>
 		</section>
 	);
@@ -306,6 +378,7 @@ function RelicProtocolLanding() {
 				<header className="flex items-center justify-between py-6">
 					<span className="font-display text-xl font-bold uppercase tracking-[0.2em] text-white">Relic Protocol</span>
 					<nav className="flex gap-6 font-mono text-xs uppercase tracking-widest text-slate-400">
+						<a href="#alpha" className="hover:text-cyan-200">Alpha</a>
 						<a href="#heroes" className="hover:text-cyan-200">Heroes</a>
 						<a href="#devlog-title" className="hover:text-cyan-200">Devlog</a>
 						<a href="timeline.html" className="hover:text-cyan-200">Timeline</a>
@@ -314,6 +387,7 @@ function RelicProtocolLanding() {
 				<Hero />
 				<Pillars />
 				<InGame />
+				<AlphaTest />
 				<Spotlight />
 				<Devlogs />
 				<footer className="border-t border-white/10 py-10 font-mono text-xs text-slate-500">
