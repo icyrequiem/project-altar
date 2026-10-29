@@ -6,7 +6,8 @@ import { createRoot } from "react-dom/client";
 const DISCORD_URL = null; // Set to the invite link once the server exists; until then the button shows "coming soon".
 const DEVLOG_BASE = "devlog/";
 // Alpha test. SIGNUP_FORM_URL is the embeddable sign-up form (for a Tally form: https://tally.so/embed/<id>?transparentBackground=1&hideTitle=1).
-// Until it is set, the section says sign-ups open soon. The download is not linked here: registered testers get a private link by email.
+// Until it is set, the section says sign-ups open soon. The download is not linked here: the form's "after submit" redirect sends
+// registered testers to the unlisted page alpha/download.html.
 const SIGNUP_FORM_URL = null;
 const SIGNUP_PAGE_URL = null; // Same form as a normal page (https://tally.so/r/<id>), for people whose browser blocks the embed.
 
@@ -148,7 +149,7 @@ function Hero() {
 
 const ALPHA_STEPS = [
 	{ n: "01", title: "Register", body: "Leave your email and a few details about your PC." },
-	{ n: "02", title: "Get your key", body: "Each wave of testers gets a private download link by email." },
+	{ n: "02", title: "Download", body: "Once you register, you go straight to the tester download page." },
 	{ n: "03", title: "Play and report", body: "Fight bots or other testers on our server, then tell us what broke." },
 ];
 

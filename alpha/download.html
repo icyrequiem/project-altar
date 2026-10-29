@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="robots" content="noindex, nofollow">
+	<title>Alpha download · Relic Protocol</title>
+	<link rel="stylesheet" href="../style.css">
+	<style>
+		.download { display: inline-block; padding: 12px 20px; border-radius: 8px; background: var(--accent); color: #0f1218; font-weight: 700; text-decoration: none; margin: 6px 12px 6px 0; }
+		.download.secondary { background: var(--panel); color: var(--text); border: 1px solid var(--line); font-weight: 600; }
+		ol li { margin: 6px 0; }
+	</style>
+</head>
+<body>
+	<header>
+		<a class="brand" href="../">Relic Protocol</a>
+		<nav><a href="../">Home</a><a href="../timeline.html">Timeline</a></nav>
+	</header>
+	<main>
+		<h1>Thanks for joining the alpha</h1>
+		<div class="meta">Closed alpha · build <span class="version">0.1.0-alpha</span></div>
+		<p class="lead">This page is for registered testers. Please don't share this link. Friends who want to play can register on the home page.</p>
+
+		<p>
+			<a class="download" id="win" href="#">Download for Windows</a>
+			<a class="download secondary" id="linux" href="#">Linux</a>
+		</p>
+
+		<h2>Getting started</h2>
+		<ol>
+			<li>Unzip the whole folder, then double-click <strong>RelicProtocol.exe</strong>.</li>
+			<li>Windows may say "Windows protected your PC" because the alpha isn't code-signed yet. Click <strong>More info</strong>, then <strong>Run anyway</strong>.</li>
+			<li>Press <strong>Play online</strong>. The test server is already filled in: type your name, press Connect, pick a hero and press Ready. Bots fill empty seats.</li>
+			<li>If the game says your version is out of date, come back here for the newest build.</li>
+		</ol>
+
+		<h2>Controls</h2>
+		<p>Right-click to move and attack, A to attack-move, Q W E R to aim an ability and left-click to cast, Ctrl+Q/W/E/R to learn one, B to recall, Tab for the scoreboard, Space to centre the camera.</p>
+	</main>
+	<footer>© 2026 Ynairally</footer>
+	<script>
+		// Set to each new tester build; the zips are attached to the site repo's release of the same tag.
+		const DOWNLOAD_VERSION = "0.1.0-alpha";
+		const base = `https://github.com/icyrequiem/project-altar/releases/download/v${DOWNLOAD_VERSION}/RelicProtocol-${DOWNLOAD_VERSION}-`;
+		document.getElementById("win").href = base + "windows.zip";
+		document.getElementById("linux").href = base + "linux.zip";
+		for (const el of document.querySelectorAll(".version")) el.textContent = DOWNLOAD_VERSION;
+	</script>
+</body>
+</html>
