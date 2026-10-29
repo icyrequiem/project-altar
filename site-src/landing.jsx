@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { createRoot } from "react-dom/client";
 
 // Relic Protocol landing page. React + Tailwind CSS (v3), built by `npm run build` into assets/.
@@ -8,8 +9,8 @@ const DEVLOG_BASE = "devlog/";
 // Alpha test. SIGNUP_FORM_URL is the embeddable sign-up form (for a Tally form: https://tally.so/embed/<id>?transparentBackground=1&hideTitle=1).
 // Until it is set, the section says sign-ups open soon. The download is not linked here: the form's "after submit" redirect sends
 // registered testers to the unlisted page alpha/download.html.
-const SIGNUP_FORM_URL = null;
-const SIGNUP_PAGE_URL = null; // Same form as a normal page (https://tally.so/r/<id>), for people whose browser blocks the embed.
+const SIGNUP_FORM_URL = "https://tally.so/embed/BEEJK7?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1";
+const SIGNUP_PAGE_URL = "https://tally.so/r/BEEJK7"; // Same form as a normal page (https://tally.so/r/<id>), for people whose browser blocks the embed.
 
 const PILLARS = [
 	{
@@ -153,7 +154,23 @@ const ALPHA_STEPS = [
 	{ n: "03", title: "Play and report", body: "Fight bots or other testers on our server, then tell us what broke." },
 ];
 
+const DOWNLOAD_PAGE = "alpha/download.html";
+
+// The embedded Tally form tells the page when it is submitted; send the tester to the download page then.
+// (The form's own "redirect on completion" setting covers people who use the plain form page.)
+function useSignupRedirect() {
+	useEffect(() => {
+		const onMessage = (event) => {
+			if (event.origin !== "https://tally.so" || typeof event.data !== "string") return;
+			if (event.data.includes("Tally.FormSubmitted")) window.location.href = DOWNLOAD_PAGE;
+		};
+		window.addEventListener("message", onMessage);
+		return () => window.removeEventListener("message", onMessage);
+	}, []);
+}
+
 function AlphaTest() {
+	useSignupRedirect();
 	return (
 		<section id="alpha" aria-labelledby="alpha-title" className="py-16 scroll-mt-8">
 			<div className="flex items-end justify-between gap-6 border-b border-white/10 pb-4">
