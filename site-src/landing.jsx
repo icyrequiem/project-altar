@@ -29,6 +29,13 @@ const PILLARS = [
 
 const DEVLOGS = [
 	{
+		n: "005",
+		date: "2026-10-29",
+		title: "The stickman look",
+		summary: "All ten heroes as stickmen, a cartoon forest map, and an effect for every attack and skill.",
+		href: DEVLOG_BASE + "005-the-stickman-look.html",
+	},
+	{
 		n: "004",
 		date: "2026-10-24",
 		title: "First heroes in full art",
@@ -156,6 +163,36 @@ function Pillars() {
 	);
 }
 
+const SHOTS = [
+	{ src: "img/laning-stickmen.webp", caption: "Laning", alt: "Blue and red stickman heroes and minion waves fighting on a sandy lane" },
+	{ src: "img/tower-fight.webp", caption: "Tower dive", alt: "Red heroes attacking a striped blue tower as fire effects explode along the lane" },
+	{ src: "img/relic-arena.webp", caption: "Relic arena", alt: "A purple relic arena open in the river with a glowing relic at its centre" },
+];
+
+function InGame() {
+	return (
+		<section aria-labelledby="ingame-title" className="py-16">
+			<div className="flex flex-wrap items-end justify-between gap-4">
+				<h2 id="ingame-title" className="font-display text-sm uppercase tracking-[0.3em] text-slate-400">In the game today</h2>
+				<span className="font-mono text-xs text-slate-500">Pre-release build</span>
+			</div>
+			<Glass className="mt-8 p-4 sm:p-6">
+				<img src="img/stickman-roster.webp" alt="The ten heroes as coloured stickmen, each with their own weapon" className="w-full max-w-full" loading="lazy" />
+			</Glass>
+			<div className="mt-6 grid gap-6 md:grid-cols-3">
+				{SHOTS.map((s) => (
+					<figure key={s.src} className="min-w-0">
+						<Glass className="overflow-hidden">
+							<img src={s.src} alt={s.alt} className="aspect-video w-full max-w-full object-cover" loading="lazy" />
+						</Glass>
+						<figcaption className="mt-2 font-mono text-xs uppercase tracking-widest text-slate-400">{s.caption}</figcaption>
+					</figure>
+				))}
+			</div>
+		</section>
+	);
+}
+
 function AttributeCell({ label, value, primary }) {
 	return (
 		<div className={`border px-3 py-3 text-center ${primary ? "border-cyan-300/60 bg-cyan-300/10" : "border-white/10 bg-white/[0.03]"}`}>
@@ -172,7 +209,10 @@ function HeroCard({ hero }) {
 		<Glass className="grid overflow-hidden md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)]">
 			<div className={`relative aspect-[4/5] max-w-full bg-gradient-to-b ${hero.accent ?? "from-slate-800"} via-slate-900 to-black md:aspect-auto md:min-h-[26rem]`}>
 				{hero.portrait ? (
-					<img src={hero.portrait} alt={`${hero.name} concept art`} className="absolute inset-0 h-full w-full object-contain p-4" loading="lazy" />
+					<>
+						<img src={hero.portrait} alt={`${hero.name} concept art`} className="absolute inset-0 h-full w-full object-contain p-4" loading="lazy" />
+						<span className="absolute bottom-3 left-4 font-mono text-[10px] uppercase tracking-widest text-slate-400">Concept art</span>
+					</>
 				) : (
 					<div className="absolute inset-0 grid place-items-center">
 						<div className="grid h-40 w-40 place-items-center border border-cyan-200/30 rotate-45">
@@ -273,6 +313,7 @@ function RelicProtocolLanding() {
 				</header>
 				<Hero />
 				<Pillars />
+				<InGame />
 				<Spotlight />
 				<Devlogs />
 				<footer className="border-t border-white/10 py-10 font-mono text-xs text-slate-500">

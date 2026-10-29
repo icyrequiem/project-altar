@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Devlog #5: The stickman look · Relic Protocol</title>
+	<meta name="description" content="All ten heroes as stickmen, a cartoon forest map, effects for every attack and skill, and lighter network traffic.">
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<header>
+		<a class="brand" href="../">Relic Protocol</a>
+		<nav><a href="../">Devlog</a><a href="../timeline.html">Timeline</a></nav>
+	</header>
+	<main>
+		<h1>Devlog #5: The stickman look</h1>
+		<div class="meta">29 October 2026 · Ynairally</div>
+
+		<p>Making a full 3D model for every hero takes time, and I want people playing sooner. So the pre-release version of the game has a new look: bold, colourful stickmen on a bright cartoon map. Every hero, minion and monster in the game now has art.</p>
+
+		<figure class="wide">
+			<img src="../img/stickman-roster.webp" alt="The ten heroes as coloured stickmen, each with their own weapon or accessory">
+			<figcaption>The full roster of ten, each in their own colour with their own weapon.</figcaption>
+		</figure>
+
+		<h2>Ten heroes, all playable with art</h2>
+		<p>Each hero is a jointed stickman in their own colour, with an ink outline and a dark weapon or accessory you can read at a glance: Bastion's sword, Lyra's bow, Orin's staff, Nyra's glowing orb, Sela's halo. They idle, run, attack and have a different motion for each of their four abilities. When they get hit they flinch the way the blow pushed them, and when they die they go down as a ragdoll.</p>
+		<p>The full anime models aren't going away. Orin and Kira's are still in the game files, and the stickmen are the look while the rest of the roster gets made.</p>
+
+		<figure>
+			<img src="../img/laning-stickmen.webp" alt="Blue and red stickman heroes and minions fighting on a sandy lane between patches of forest">
+			<figcaption>Early laning: heroes and both minion waves in the middle of the lane.</figcaption>
+		</figure>
+
+		<h2>Minions, towers and jungle monsters</h2>
+		<p>Lane minions are smaller stickmen in team colours: melee, ranged, and siege minions carrying hand cannons. Towers are pale stone shafts banded in the team colour with a floating gem that swells as it charges a shot. Cores spin on a plinth, and both crumble when destroyed. The jungle has wolves, raptors, toads and crabs, plus bigger stickman monsters.</p>
+
+		<h2>A forest map</h2>
+		<p>The map is now textured grass, dirt lanes and a river, with jungle walls grown over with trees, pines and bushes. Fog of war dims everything your team can't see.</p>
+
+		<figure>
+			<img src="../img/tower-fight.webp" alt="Red heroes attack a blue-and-white striped tower while a fiery ability explodes along the lane">
+			<figcaption>A tower dive, with fire effects going off along the lane.</figcaption>
+		</figure>
+
+		<h2>An effect for every attack and skill</h2>
+		<p>Every basic attack, projectile and ability now has its own cartoon effect: orbs, arrows, slashes, cannonballs, trails, flashes, heal sparkles, shield bubbles and dust. Statuses show on the hero, so you can see at a glance who is slowed, rooted or burning.</p>
+
+		<figure>
+			<img src="../img/relic-arena.webp" alt="A relic arena in the river: a purple dome with a glowing relic at its centre, and a hero inside the capture circle">
+			<figcaption>A relic arena open in the river. Only the heroes each team sends can get inside.</figcaption>
+		</figure>
+
+		<h2>Smoother online play</h2>
+		<p>Behind the scenes, the server now only sends what changed since the last update each player confirmed. Updates are a fraction of the size they were, which keeps online matches smoother on slower connections.</p>
+
+		<h2>Next</h2>
+		<p>Playtesting the new look online, and polishing the relic arenas.</p>
+
+		<div class="card">
+			<h3>Proof of date</h3>
+			<p class="meta">This hash commits to the private source at this milestone without revealing it. Details are in <a href="../proofs/milestone-005.txt">milestone-005.txt</a>.</p>
+			<code>git commit c2505d2649386195afba97e71fa82de882a893c2</code>
+		</div>
+	</main>
+	<footer>&copy; 2026 Ynairally.</footer>
+</body>
+</html>

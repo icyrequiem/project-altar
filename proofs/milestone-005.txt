@@ -1,0 +1,11 @@
+Relic Protocol - milestone 005 (devlog #5)
+Date: 2026-10-29
+
+Private game repository main branch at this milestone:
+  git commit: c2505d2649386195afba97e71fa82de882a893c2
+  committed:  2026-10-29T03:17:24Z
+  SHA-256 of "git archive --format=tar c2505d2649386195afba97e71fa82de882a893c2": 9a396bbefa7dbebfd9aff049b7ba72317e31bcb58d249596e905f0ac1bc20bd4
+
+These hashes reveal nothing about the code, but prove that this exact
+source tree existed no later than this file's first commit to the public
+project-altar repository.
