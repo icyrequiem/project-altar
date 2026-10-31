@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Devlog #8: Kills, a bronze HUD and new heroes · Relic Protocol</title>
+	<meta name="description" content="Rewarding hero kills, a carved bronze HUD, a new hero select, starting attributes, and three more heroes redrawn as sprites.">
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<header>
+		<a class="brand" href="../">Relic Protocol</a>
+		<nav><a href="../">Devlog</a><a href="../timeline.html">Timeline</a></nav>
+	</header>
+	<main>
+		<h1>Devlog #8: Kills, a bronze HUD and new heroes</h1>
+		<div class="meta">31 October 2026 · Ynairally</div>
+
+		<p>Same day, second update. The pixel-art look now reaches the menus and the HUD, three more heroes got their redrawn sprites, every hero starts with attribute points, and taking down an enemy hero finally feels like an event.</p>
+
+		<figure class="wide">
+			<img src="../img/pixel-roster.webp" alt="The ten heroes as pixel-art sprites, including a hooded archer and a horned, armoured giant">
+			<figcaption>The roster today. Orin, Kira, Lyra and Haldor now have fully redrawn sprite sets; the rest are next.</figcaption>
+		</figure>
+
+		<h2>Three more heroes redrawn</h2>
+		<p>Kira Vex, Lyra Thorn and Haldor Quakeborn joined Orin with full sprite sets: many more frames for idle, run, attack, cast and death in all eight directions, each timed to match the hero's real attack and death. Kira is sleek and fast, Lyra is a hooded archer with a longbow, and Haldor is a horned, rock-armoured giant. All four also have drawn portraits for the HUD and hero select.</p>
+
+		<h2>Kills that feel like kills</h2>
+		<p>Taking down an enemy hero now pays off and looks the part. The killer gets bonus experience, with extra for first blood, for ending an enemy's kill streak and for chaining kills together. Teammates who helped get a share wherever they are on the map, so supporting a fight is worth it. All of it still goes through the relic rule: the more relics you hold, the less experience you gain, so the leading team can't snowball forever.</p>
+		<p>On screen you get call-outs like First Blood, Double Kill and Shutdown, a brief hit-stop on the killing blow, a white-hot flash on the hero, a burst effect, a camera kick and a sound to confirm the kill.</p>
+
+		<h2>A carved bronze HUD</h2>
+		<figure>
+			<img src="../img/bronze-hud.webp" alt="A carved wood and bronze HUD panel with a round hero portrait, health and mana bars, four ability sockets and three empty relic sockets">
+			<figcaption>The new HUD: portrait medallion, health and mana, four ability sockets and the relic sockets.</figcaption>
+		</figure>
+		<p>The HUD is now a chunky carved-wood and bronze console drawn as pixel art, in a matching pixel font: a portrait medallion, health, mana and experience bars, ability sockets that fill as cooldowns finish, rank pips, gem sockets for your relics, attribute tablets with buttons to spend your points, a pennant scoreboard with the match clock, a banner for the next relic arena, a kill feed and a bronze-framed minimap.</p>
+
+		<h2>A new hero select</h2>
+		<figure>
+			<img src="../img/hero-select-grid.webp" alt="The hero select grid: role tabs above ten hero portraits, with Orin selected">
+			<figcaption>Picking a hero: role tabs and the portrait grid.</figcaption>
+		</figure>
+		<p>Hero select now looks like a reliquary hall: blue's seats down the left, red's down the right, a pick timer at the top, and the chosen hero standing on an altar beside their starting attributes, level-one stats and full kit. Role tabs filter the grid, and taken heroes fade out. Online and offline use the same screen.</p>
+
+		<h2>Starting attributes</h2>
+		<p>Every hero now starts with a handful of Strength, Agility and Intelligence points, weighted toward their primary attribute, and each level adds more for you to spend. The <a href="../#roster">roster on the home page</a> shows each hero's starting spread.</p>
+
+		<h2>Next</h2>
+		<p>Redrawing the other six heroes, and a new tester build with all of this in it.</p>
+
+		<div class="card">
+			<h3>Proof of date</h3>
+			<p class="meta">This hash commits to the private source at this milestone without revealing it. Details are in <a href="../proofs/milestone-008.txt">milestone-008.txt</a>.</p>
+			<code>git commit 9675b0aa7a127d80f07e357ed1e88e93decfa632</code>
+		</div>
+	</main>
+	<footer>&copy; 2026 Ynairally.</footer>
+</body>
+</html>

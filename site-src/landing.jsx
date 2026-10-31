@@ -35,6 +35,13 @@ const PILLARS = [
 
 const DEVLOGS = [
 	{
+		n: "008",
+		date: "2026-10-31",
+		title: "Kills, a bronze HUD and new heroes",
+		summary: "Rewarding hero kills, a carved bronze HUD, a new hero select, starting attributes, and three more redrawn heroes.",
+		href: DEVLOG_BASE + "008-kills-a-bronze-hud-and-new-heroes.html",
+	},
+	{
 		n: "007",
 		date: "2026-10-31",
 		title: "Going pixel art",
