@@ -85,7 +85,7 @@ const DEVLOGS = [
 	},
 ];
 
-// Heroes start with no attribute points; players spend them on level-up.
+// attributes: the hero's starting STR/AGI/INT points (primary is the largest); players add more on level-up.
 // Leave an attribute as null to show the slot without a number.
 // quote: a short line in the hero's own voice; null hides it.
 // portrait: concept art (or an in-game render) with a transparent background; null shows the placeholder.
@@ -94,7 +94,7 @@ const SPOTLIGHT = [
 		name: "Orin Ash",
 		role: "Mage",
 		primary: "INT",
-		attributes: { STR: null, AGI: null, INT: null },
+		attributes: { STR: 2, AGI: 3, INT: 5 },
 		kit: ["Fireball", "Flame Wall", "Scorch", "Meteor"],
 		quote: null,
 		portrait: "img/orin_ash_concept.webp",
@@ -104,7 +104,7 @@ const SPOTLIGHT = [
 		name: "Kira Vex",
 		role: "Assassin",
 		primary: "AGI",
-		attributes: { STR: null, AGI: null, INT: null },
+		attributes: { STR: 3, AGI: 5, INT: 2 },
 		kit: ["Shadow Bind", "Smoke Veil", "Crescent Slash", "Execute"],
 		quote: null,
 		portrait: "img/kira_vex_concept.webp",
@@ -347,6 +347,72 @@ function HeroCard({ hero }) {
 	);
 }
 
+// The full roster with starting attribute points, from the game's hero data. sprite: front-facing idle frame.
+const ROSTER = [
+	{ id: "bastion_grael", name: "Bastion Grael", role: "Tank", primary: "STR", attributes: { STR: 5, AGI: 2, INT: 3 }, passive: "Stoneskin", kit: ["Shield Bash", "Bulwark", "Taunt Slam", "Fortress"] },
+	{ id: "haldor_quakeborn", name: "Haldor Quakeborn", role: "Tank", primary: "STR", attributes: { STR: 5, AGI: 3, INT: 2 }, passive: "Aftershock", kit: ["Fault Line", "Stone Stride", "Seismic Grip", "Mountain's Fall"] },
+	{ id: "rhea_ironfang", name: "Rhea Ironfang", role: "Fighter", primary: "STR", attributes: { STR: 5, AGI: 4, INT: 1 }, passive: "Bloodlust", kit: ["Rend", "Roar", "Ground Slam", "Primal Form"] },
+	{ id: "kira_vex", name: "Kira Vex", role: "Assassin", primary: "AGI", attributes: { STR: 3, AGI: 5, INT: 2 }, passive: "Backstab", kit: ["Shadow Bind", "Smoke Veil", "Crescent Slash", "Execute"] },
+	{ id: "lyra_thorn", name: "Lyra Thorn", role: "Marksman", primary: "AGI", attributes: { STR: 2, AGI: 5, INT: 3 }, passive: "Hunter's Rhythm", kit: ["Piercing Arrow", "Volley", "Snare Trap", "Hunter's Mark"] },
+	{ id: "juno_galecaller", name: "Juno Galecaller", role: "Mage", primary: "AGI", attributes: { STR: 2, AGI: 5, INT: 3 }, passive: "Static Charge", kit: ["Arc Bolt", "Tailwind", "Gale Burst", "Eye of the Storm"] },
+	{ id: "orin_ash", name: "Orin Ash", role: "Mage", primary: "INT", attributes: { STR: 2, AGI: 3, INT: 5 }, passive: "Burn", kit: ["Fireball", "Flame Wall", "Scorch", "Meteor"] },
+	{ id: "nyra_frostweave", name: "Nyra Frostweave", role: "Mage", primary: "INT", attributes: { STR: 2, AGI: 3, INT: 5 }, passive: "Frostbite", kit: ["Ice Shard", "Rime Ring", "Cold Snap", "Absolute Zero"] },
+	{ id: "maro_tidecaller", name: "Maro Tidecaller", role: "Support", primary: "INT", attributes: { STR: 3, AGI: 2, INT: 5 }, passive: "Ebb and Flow", kit: ["Tide Orb", "Bubble", "Undertow", "Tsunami"] },
+	{ id: "sela_dawnsong", name: "Sela Dawnsong", role: "Support", primary: "INT", attributes: { STR: 3, AGI: 2, INT: 5 }, passive: "Morning Light", kit: ["Sunlance", "Anthem", "Dazzle", "Sanctuary"] },
+];
+const ATTRIBUTE_MAX = 5;
+
+function AttributeBar({ label, value, primary }) {
+	return (
+		<div className="grid grid-cols-[2.5rem_minmax(0,1fr)_1rem] items-center gap-2 font-mono text-xs">
+			<span className={primary ? "text-cyan-200" : "text-slate-400"}>{label}</span>
+			<span className="flex gap-1" aria-hidden="true">
+				{Array.from({ length: ATTRIBUTE_MAX }, (_, i) => (
+					<span key={i} className={`h-2 flex-1 ${i < value ? (primary ? "bg-cyan-300" : "bg-slate-300/70") : "bg-white/10"}`} />
+				))}
+			</span>
+			<span className="text-right tabular-nums text-white">{value}</span>
+		</div>
+	);
+}
+
+function RosterCard({ hero }) {
+	return (
+		<Glass className="flex min-w-0 gap-4 p-4">
+			<img src={`img/sprites/${hero.id}.webp`} alt={`${hero.name} sprite`} width="96" height="112" className="h-28 w-24 shrink-0 [image-rendering:pixelated]" loading="lazy" />
+			<div className="min-w-0 flex-1">
+				<p className="font-mono text-[10px] uppercase tracking-[0.3em] text-cyan-300/80">{hero.role} · {hero.primary}</p>
+				<h3 className="mt-1 font-display text-xl font-bold uppercase text-white">{hero.name}</h3>
+				<div className="mt-3 grid gap-1.5" aria-label={`Starting attributes: STR ${hero.attributes.STR}, AGI ${hero.attributes.AGI}, INT ${hero.attributes.INT}`}>
+					{Object.entries(hero.attributes).map(([k, v]) => (
+						<AttributeBar key={k} label={k} value={v} primary={k === hero.primary} />
+					))}
+				</div>
+				<p className="mt-3 text-xs leading-relaxed text-slate-400">
+					<span className="text-slate-300">Passive:</span> {hero.passive} · {hero.kit.join(" · ")}
+				</p>
+			</div>
+		</Glass>
+	);
+}
+
+function Roster() {
+	return (
+		<section id="roster" aria-labelledby="roster-title" className="py-16 scroll-mt-8">
+			<div className="flex flex-wrap items-end justify-between gap-4">
+				<h2 id="roster-title" className="font-display text-sm uppercase tracking-[0.3em] text-slate-400">The roster</h2>
+				<span className="font-mono text-xs text-slate-500">Starting attributes · primary is highest</span>
+			</div>
+			<p className="mt-4 max-w-2xl text-slate-300">Every hero starts with a few points in Strength, Agility and Intelligence, weighted toward their primary attribute. Each level adds more points that you spend however you like.</p>
+			<div className="mt-8 grid gap-4 md:grid-cols-2">
+				{ROSTER.map((h) => (
+					<RosterCard key={h.id} hero={h} />
+				))}
+			</div>
+		</section>
+	);
+}
+
 function Spotlight() {
 	return (
 		<section id="heroes" aria-labelledby="heroes-title" className="py-16 scroll-mt-8">
@@ -421,6 +487,7 @@ function RelicProtocolLanding() {
 				<InGame />
 				<AlphaTest />
 				<Spotlight />
+				<Roster />
 				<Devlogs />
 				<footer className="border-t border-white/10 py-10 font-mono text-xs text-slate-500">
 					© 2026 Ynairally · Every devlog is dated and backed by a published hash of the game's source. See the <a href="timeline.html" className="text-cyan-300 hover:text-cyan-200">timeline</a>.
