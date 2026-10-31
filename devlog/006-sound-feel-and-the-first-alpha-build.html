@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Devlog #6: Sound, feel and the first alpha build · Relic Protocol</title>
+	<meta name="description" content="Sound for every hit, springier hero motion, a cheaper 5v5 server, and the first closed alpha build.">
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<header>
+		<a class="brand" href="../">Relic Protocol</a>
+		<nav><a href="../">Devlog</a><a href="../timeline.html">Timeline</a></nav>
+	</header>
+	<main>
+		<h1>Devlog #6: Sound, feel and the first alpha build</h1>
+		<div class="meta">31 October 2026 · Ynairally</div>
+
+		<p>This one is less about looks and more about how the game feels to play: every hit now makes a sound, heroes move more like people, servers can carry a full 5v5 for less, and the first build went out to closed alpha testers.</p>
+
+		<h2>Sound for everything</h2>
+		<p>Every attack, projectile, skill, hit, death, minion, tower, match announcement and menu button now makes a sound. They're all made by the game itself from small recipes, layered from a click, a tonal body, a low thump, a metallic ring and a bit of crackle, so there are no audio files to license. The busiest sounds (attacks, hits and deaths) each have several takes that never repeat back to back, so a big fight doesn't drone. You only hear what your team can see: fog of war applies to sound too.</p>
+
+		<h2>Heroes that move like people</h2>
+		<p>Stiff, robotic animation was the biggest complaint about the stickmen, so every joint now follows its pose on a spring. Arms trail and whip, bodies lean into a sprint, pitch forward as they stop and bank into turns, and idle heroes shift their weight from foot to foot. Attacks and casts got the classic animation beats: anticipation, a held wind-up, a snap, a small overshoot and a follow-through, while the hit still lands exactly on the swing.</p>
+		<p>Melee got extra care. Early punches read more like the attacker being hit than hitting, so swings now start on the back foot, turn through the hips and shoulders, and keep the head level and on the target. Sword fighters hold a wide low guard and finish with a big overhead cut.</p>
+
+		<h2>A cheaper server for full 5v5</h2>
+		<p>Teammates who are in sync now share one update packet from the server instead of getting one each, and the server does less repeated work every tick. In a load test with ten bot-driven players, each server tick now takes less than half the time it did before, which leaves plenty of room on a small machine.</p>
+
+		<h2>The first closed alpha build</h2>
+		<p>The game now builds automatically for Windows and Linux, and the first tester build went out to people who signed up on this site. The menu points straight at the alpha server, and the server turns away out-of-date versions, so testers always play on the same rules. If you want in, the sign-up form is on the <a href="../#alpha">home page</a>.</p>
+
+		<h2>Next</h2>
+		<p>A much bigger change to how the game looks. That's Devlog #7.</p>
+
+		<div class="card">
+			<h3>Proof of date</h3>
+			<p class="meta">This hash commits to the private source at this milestone without revealing it. Details are in <a href="../proofs/milestone-006.txt">milestone-006.txt</a>.</p>
+			<code>git commit 00986499b3d798545c10a8e73a569465799ea53d</code>
+		</div>
+	</main>
+	<footer>&copy; 2026 Ynairally.</footer>
+</body>
+</html>

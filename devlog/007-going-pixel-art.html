@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Devlog #7: Going pixel art · Relic Protocol</title>
+	<meta name="description" content="Relic Protocol switches to 32-bit-style pixel art: sprite heroes in eight directions and a painted pixel map.">
+	<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+	<header>
+		<a class="brand" href="../">Relic Protocol</a>
+		<nav><a href="../">Devlog</a><a href="../timeline.html">Timeline</a></nav>
+	</header>
+	<main>
+		<h1>Devlog #7: Going pixel art</h1>
+		<div class="meta">31 October 2026 · Ynairally</div>
+
+		<p>Relic Protocol has a new look: hand-shaded 2D pixel art in the style of the 32-bit console RPGs I grew up on, shown from a fixed three-quarter view. The game underneath (the map, the rules, the servers) hasn't changed. Only how it's drawn has.</p>
+
+		<figure>
+			<img src="../img/pixel-teamfight.webp" alt="Pixel-art heroes clash in a lane next to a river, with golden spell effects bursting between them">
+			<figcaption>A teamfight in the lane by the river.</figcaption>
+		</figure>
+
+		<h2>Why pixel art</h2>
+		<p>3D models and code-built stickmen both had the same problem: making the motion feel alive took far more time than I have as one person. Sprites solve that. Each hero is a set of sprite sheets seen from eight directions, so every frame can be drawn to read clearly from the camera, and fluid animation is a matter of adding frames.</p>
+
+		<figure class="wide">
+			<img src="../img/pixel-roster.webp" alt="The ten heroes as pixel-art sprites, from a robed mage with a fire staff to a knight with a shield and a horned warrior">
+			<figcaption>The roster in pixel art. Orin (far left) is the first hero with a fully redrawn, smoother set of frames; the rest will follow.</figcaption>
+		</figure>
+
+		<h2>Sprite heroes and minions</h2>
+		<p>Every hero and lane minion is now a sprite with idle, run, attack, cast and death animations in all eight directions, team-coloured where it matters, and with a flash when hit. Sprites are shaded with colour ramps, dithering, a rim light and a coloured outline, so they look hand-painted rather than shrunk down. Orin Ash is the first hero to get a fully redrawn sprite set with many more frames per move, and his sprites now play every one of them for smoother motion.</p>
+
+		<figure>
+			<img src="../img/pixel-tower.webp" alt="Heroes and minions fighting around a blue stone tower on a dirt lane bordered by forest">
+			<figcaption>A push on a tower, with minion waves on both sides.</figcaption>
+		</figure>
+
+		<h2>A painted pixel map</h2>
+		<p>The whole map is painted in the same style: grass, dirt lanes, a river with sandy banks and glints on the water, the jungle floor and stone plazas. Trees, bushes, towers, cores and the altar dais are pixel sprites too, and the jungle wolves, raptors, toads and crabs got their own beast sprites. The camera moves in whole pixels, so nothing shimmers as it scrolls.</p>
+
+		<figure>
+			<img src="../img/pixel-relic-arena.webp" alt="A relic arena in the river: a stone dais ringed by a purple barrier, with heroes fighting inside">
+			<figcaption>A relic arena open in the river, with heroes fighting inside the barrier.</figcaption>
+		</figure>
+
+		<h2>A fixed camera</h2>
+		<p>The camera zoom is now fixed, so every player sees the same amount of the map and the pixel art always shows at the size it was drawn for.</p>
+
+		<h2>Next</h2>
+		<p>Redrawing the rest of the roster with full animation sets, and getting the new look into testers' hands.</p>
+
+		<div class="card">
+			<h3>Proof of date</h3>
+			<p class="meta">This hash commits to the private source at this milestone without revealing it. Details are in <a href="../proofs/milestone-007.txt">milestone-007.txt</a>.</p>
+			<code>git commit 16c384405f3addf484b2c58f461a651f65fd0ab0</code>
+		</div>
+	</main>
+	<footer>&copy; 2026 Ynairally.</footer>
+</body>
+</html>

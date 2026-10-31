@@ -35,6 +35,20 @@ const PILLARS = [
 
 const DEVLOGS = [
 	{
+		n: "007",
+		date: "2026-10-31",
+		title: "Going pixel art",
+		summary: "A new 32-bit-style look: sprite heroes in eight directions and a painted pixel map.",
+		href: DEVLOG_BASE + "007-going-pixel-art.html",
+	},
+	{
+		n: "006",
+		date: "2026-10-31",
+		title: "Sound, feel and the first alpha build",
+		summary: "Sound for every hit, springier hero motion, a cheaper 5v5 server, and the first tester build.",
+		href: DEVLOG_BASE + "006-sound-feel-and-the-first-alpha-build.html",
+	},
+	{
 		n: "005",
 		date: "2026-10-29",
 		title: "The stickman look",
@@ -183,7 +197,7 @@ function AlphaTest() {
 						Help us break it before anyone else does.
 					</p>
 					<p className="mt-4 text-slate-300">
-						The alpha is small and rough: placeholder stickman art, bots in empty seats and frequent updates. Testers play
+						The alpha is small and rough: work-in-progress art, bots in empty seats and frequent updates. Testers play
 						online 5v5 matches on our server and shape the game before it opens up.
 					</p>
 					<ol className="mt-8 grid gap-3">
@@ -254,9 +268,9 @@ function Pillars() {
 }
 
 const SHOTS = [
-	{ src: "img/laning-stickmen.webp", caption: "Laning", alt: "Blue and red stickman heroes and minion waves fighting on a sandy lane" },
-	{ src: "img/tower-fight.webp", caption: "Tower dive", alt: "Red heroes attacking a striped blue tower as fire effects explode along the lane" },
-	{ src: "img/relic-arena.webp", caption: "Relic arena", alt: "A purple relic arena open in the river with a glowing relic at its centre" },
+	{ src: "img/pixel-teamfight.webp", caption: "Teamfight", alt: "Pixel-art heroes clashing in a lane by the river, with golden spell effects" },
+	{ src: "img/pixel-tower.webp", caption: "Tower push", alt: "Heroes and minions fighting around a blue stone tower on a dirt lane" },
+	{ src: "img/pixel-relic-arena.webp", caption: "Relic arena", alt: "A relic arena on a stone dais in the river, ringed by a purple barrier" },
 ];
 
 function InGame() {
@@ -267,7 +281,7 @@ function InGame() {
 				<span className="font-mono text-xs text-slate-500">Pre-release build</span>
 			</div>
 			<Glass className="mt-8 p-4 sm:p-6">
-				<img src="img/stickman-roster.webp" alt="The ten heroes as coloured stickmen, each with their own weapon" className="w-full max-w-full" loading="lazy" />
+				<img src="img/pixel-roster.webp" alt="The ten heroes as pixel-art sprites" className="w-full max-w-full [image-rendering:pixelated]" loading="lazy" />
 			</Glass>
 			<div className="mt-6 grid gap-6 md:grid-cols-3">
 				{SHOTS.map((s) => (
